@@ -52,11 +52,10 @@ a { color: inherit; }
 }
 .card:hover, .card:focus-visible { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--accent); outline: none; }
 .card:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--accent); }
-.card__head { display: flex; align-items: center; gap: 12px; padding: 16px 18px 14px; background: var(--accent); color: var(--accent-ink, #fff); }
+.card__head { container-type: inline-size; display: flex; align-items: center; gap: 12px; padding: 16px 18px 14px; background: var(--accent); color: var(--accent-ink, #fff); }
 .card__icon { width: 40px; height: 40px; flex: none; }
 .card__kind { display: block; font-size: 12px; font-weight: 700; letter-spacing: .12em; opacity: .9; }
-.card__name span { display: block; }
-.card__name { display: block; margin-top: 1px; font-family: var(--display); font-size: clamp(20px, 3.6vw, 24px); line-height: 1.25; }
+.card__name { display: block; margin-top: 1px; font-family: var(--display); font-size: min(22px, calc((100cqi - 64px) / var(--len, 17.5))); line-height: 1.25; white-space: nowrap; }
 .card__body { flex: 1; display: flex; flex-direction: column; padding: 14px 18px 16px; }
 .card__desc { margin: 0; }
 .card__meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-top: auto; padding-top: 14px; font-size: 13px; color: var(--ink-2); }
@@ -92,7 +91,7 @@ a { color: inherit; }
       <a class="card card--cinema" href="https://cinema.hashigo-map.com/">
         <span class="card__head">
           <svg class="card__icon" viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="mCinema"><rect width="100" height="100" fill="#fff"/><g fill="#000"><rect x="11.7" y="0" width="10" height="100"/><rect x="78.3" y="0" width="10" height="100"/><rect x="21.7" y="23.75" width="56.6" height="10"/><rect x="21.7" y="66.25" width="56.6" height="10"/></g></mask></defs><circle cx="50" cy="50" r="50" fill="#fff" mask="url(#mCinema)"/></svg>
-          <span><span class="card__kind">映画館</span><span class="card__name"><span>たっぷりひたれ！</span><span>はしごシネマ</span></span></span>
+          <span><span class="card__kind">映画館</span><span class="card__name" style="--len:14.5">たっぷりひたれ！はしごシネマ</span></span>
         </span>
         <span class="card__body">
           <p class="card__desc">映画館の上映スケジュールを8日間分まとめて見て、続けて観られる作品の組み合わせを探します。</p>
@@ -104,7 +103,7 @@ a { color: inherit; }
       <a class="card card--museum" href="https://museum.hashigo-map.com/">
         <span class="card__head">
           <svg class="card__icon" viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="mMuseum"><rect width="100" height="100" fill="#fff"/><g fill="#000"><rect x="30" y="34" width="8" height="52"/><rect x="62" y="34" width="8" height="52"/><rect x="38" y="48" width="24" height="7"/><rect x="38" y="68" width="24" height="7"/></g></mask></defs><path d="M50 8 94 32H6Z M10 36h80v52H10Z" fill="#fff" mask="url(#mMuseum)"/></svg>
-          <span><span class="card__kind">美術館</span><span class="card__name"><span>ゆったりめぐれ！</span><span>はしごミュージアム</span></span></span>
+          <span><span class="card__kind">美術館</span><span class="card__name" style="--len:17.5">ゆったりめぐれ！はしごミュージアム</span></span>
         </span>
         <span class="card__body">
           <p class="card__desc">美術館の企画展をまとめて見て、同じ日に回れる展覧会を探します。</p>
@@ -116,7 +115,7 @@ a { color: inherit; }
       <a class="card card--yose" href="https://yose.hashigo-map.com/">
         <span class="card__head">
           <svg class="card__icon" viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="mYose"><rect width="100" height="100" fill="#fff"/><g stroke="#000" stroke-width="6" stroke-linecap="round"><path d="M50 50V36M50 50L62 57M50 50L38 57"/></g><circle cx="50" cy="50" r="5" fill="#000"/></mask></defs><g fill="#fff"><path d="M18 21Q50 13 82 21Q90 50 82 79Q50 87 18 79Q10 50 18 21Z" stroke="#fff" stroke-width="7" stroke-linejoin="round" mask="url(#mYose)"/><path d="M16 19L10 13M84 19L90 13M16 81L10 87M84 81L90 87" stroke="#fff" stroke-width="5" stroke-linecap="round"/><circle cx="8" cy="11" r="5.5"/><circle cx="92" cy="11" r="5.5"/><circle cx="8" cy="89" r="5.5"/><circle cx="92" cy="89" r="5.5"/></g></svg>
-          <span><span class="card__kind">寄席</span><span class="card__name"><span>しびれろ！</span><span>はしご寄席</span></span></span>
+          <span><span class="card__kind">寄席</span><span class="card__name" style="--len:10.5">しびれろ！はしご寄席</span></span>
         </span>
         <span class="card__body">
           <p class="card__desc">寄席の番組を10日間分まとめて見て、推しの出演者を追いかけるはしごの組み合わせを探します。</p>
@@ -128,7 +127,7 @@ a { color: inherit; }
       <a class="card card--camp" href="https://camp.hashigo-map.com/">
         <span class="card__head">
           <svg class="card__icon" viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="mCamp"><rect width="100" height="100" fill="#fff"/><g fill="#000"><rect x="27" y="0" width="9" height="100"/><rect x="64" y="0" width="9" height="100"/><rect x="36" y="44" width="28" height="9"/><rect x="36" y="70" width="28" height="9"/></g></mask></defs><path d="M50 4 L97 94 H3 Z" fill="#fff" mask="url(#mCamp)"/></svg>
-          <span><span class="card__kind">キャンプ場</span><span class="card__name"><span>燃やせ！</span><span>はしごキャンプ</span></span></span>
+          <span><span class="card__kind">キャンプ場</span><span class="card__name" style="--len:11.5">燃やせ！はしごキャンプ</span></span>
         </span>
         <span class="card__body">
           <p class="card__desc">キャンプ場の予約受付状況をまとめて見て、キャンプ＋温泉やエリアめぐりの組み合わせを探します。</p>
