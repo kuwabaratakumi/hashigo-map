@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>はしごマップ ― はしごシリーズの入口</title>
+<meta name="description" content="映画館・美術館・寄席・キャンプ場の予定をまとめて見て、1日にいくつもめぐる「はしご」を探すサイトの入口">
+<meta name="theme-color" content="#1d1a17">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f7f4ee;
+  --ink: #1d1a17;
+  --ink-2: #5c534c;
+  --line: #1d1a17;
+  --jp: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --display: "Dela Gothic One", "Zen Kaku Gothic New", sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--jp); font-size: 15px; line-height: 1.7;
+  font-feature-settings: "palt";
+}
+a { color: inherit; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+/* ヘッダー：はしごの段を背景に */
+.hero {
+  border-bottom: 3px solid var(--line);
+  background: var(--paper);
+}
+.hero .wrap { padding-top: 56px; padding-bottom: 44px; }
+.hero__logo { display: flex; align-items: center; gap: 14px; margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(34px, 7vw, 56px); line-height: 1.15; letter-spacing: .02em; }
+.hero__logo svg { width: 1em; height: 1em; flex: none; }
+.hero__lead { text-wrap: pretty; margin: 18px 0 0; font-size: clamp(15px, 2.4vw, 18px); font-weight: 500; max-width: 34em; }
+
+/* サイト一覧 */
+.list { list-style: none; margin: 36px auto 0; padding: 0 20px; max-width: 960px; display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
+.card {
+  position: relative; display: flex; flex-direction: column; height: 100%;
+  background: #fff; border: 2px solid var(--line); border-radius: 6px;
+  text-decoration: none; overflow: hidden;
+  box-shadow: 5px 5px 0 var(--accent);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.card:hover, .card:focus-visible { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--accent); outline: none; }
+.card:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--accent); }
+.card__head { display: flex; align-items: center; gap: 12px; padding: 16px 18px 14px; background: var(--accent); color: var(--accent-ink, #fff); }
+.card__icon { width: 40px; height: 40px; flex: none; }
+.card__kind { display: block; font-size: 12px; font-weight: 700; letter-spacing: .12em; opacity: .9; }
+.card__name span { display: inline-block; }
+.card__name { display: block; margin-top: 1px; font-family: var(--display); font-size: clamp(20px, 3.6vw, 24px); line-height: 1.25; }
+.card__body { flex: 1; display: flex; flex-direction: column; padding: 14px 18px 16px; }
+.card__desc { margin: 0; }
+.card__meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-top: auto; padding-top: 14px; font-size: 13px; color: var(--ink-2); }
+.card__area { padding: 2px 8px; border: 1px solid currentColor; border-radius: 999px; }
+.card__go { font-weight: 700; color: var(--ink); white-space: nowrap; }
+.card__go::after { content: " →"; }
+
+.card--cinema { --accent: #b3263a; }
+.card--museum { --accent: #e63312; }
+.card--yose   { --accent: #4a2c63; }
+.card--yose .card__name { font-family: "Zen Old Mincho", serif; font-weight: 700; }
+.card--camp   { --accent: #2f6b4f; }
+
+.about { margin-top: 48px; padding-top: 28px; padding-bottom: 40px; border-top: 1px solid rgba(29,26,23,.2); font-size: 13px; color: var(--ink-2); }
+.about h2 { margin: 0 0 6px; font-size: 14px; color: var(--ink); }
+.about p { margin: 0 0 10px; }
+
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="hero__logo"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="logoMask"><rect width="100" height="100" fill="#fff"/><g fill="#000"><rect x="35" y="12" width="7" height="50"/><rect x="58" y="12" width="7" height="50"/><rect x="42" y="24" width="16" height="6"/><rect x="42" y="44" width="16" height="6"/></g></mask></defs><path d="M50 98C50 98 14 60 14 38a36 36 0 0 1 72 0c0 22-36 60-36 60Z" fill="currentColor" mask="url(#logoMask)"/></svg>はしごマップ</h1>
+    <p class="hero__lead">映画館も、美術館も、寄席も、キャンプ場も。<br>あちこちの予定をひとつにまとめて、1日でいくつもめぐる「はしご」の組み合わせを探すサイトのシリーズです。</p>
+  </div>
+</header>
+
+<main>
+  <ul class="list">
+    <li>
+      <a class="card card--cinema" href="https://cinema.hashigo-map.com/">
+        <span class="card__head">
+          <svg class="card__icon" viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="mCinema"><rect width="100" height="100" fill="#fff"/><g fill="#000"><rect x="11.7" y="0" width="10" height="100"/><rect x="78.3" y="0" width="10" height="100"/><rect x="21.7" y="23.75" width="56.6" height="10"/><rect x="21.7" y="66.25" width="56.6" height="10"/></g></mask></defs><circle cx="50" cy="50" r="50" fill="#fff" mask="url(#mCinema)"/></svg>
+          <span><span class="card__kind">映画館</span><span class="card__name"><span>たっぷりひたれ！</span><span>はしごシネマ</span></span></span>
+        </span>
+        <span class="card__body">
+          <p class="card__desc">映画館の上映スケジュールを8日間分まとめて見て、続けて観られる作品の組み合わせを探します。</p>
+          <span class="card__meta"><span class="card__area">埼玉・東京</span><span class="card__go">ひらく</span></span>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a class="card card--museum" href="https://museum.hashigo-map.com/">
+        <span class="card__head">
+          <svg class="card__icon" viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="mMuseum"><rect width="100" height="100" fill="#fff"/><g fill="#000"><rect x="30" y="34" width="8" height="52"/><rect x="62" y="34" width="8" height="52"/><rect x="38" y="48" width="24" height="7"/><rect x="38" y="68" width="24" height="7"/></g></mask></defs><path d="M50 8 94 32H6Z M10 36h80v52H10Z" fill="#fff" mask="url(#mMuseum)"/></svg>
+          <span><span class="card__kind">美術館</span><span class="card__name"><span>ゆったりめぐれ！</span><span>はしごミュージアム</span></span></span>
+        </span>
+        <span class="card__body">
+          <p class="card__desc">美術館の企画展をまとめて見て、同じ日に回れる展覧会を探します。</p>
+          <span class="card__meta"><span class="card__area">埼玉・東京</span><span class="card__go">ひらく</span></span>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a class="card card--yose" href="https://yose.hashigo-map.com/">
+        <span class="card__head">
+          <svg class="card__icon" viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="mYose"><rect width="100" height="100" fill="#fff"/><g stroke="#000" stroke-width="6" stroke-linecap="round"><path d="M50 50V36M50 50L62 57M50 50L38 57"/></g><circle cx="50" cy="50" r="5" fill="#000"/></mask></defs><g fill="#fff"><path d="M18 21Q50 13 82 21Q90 50 82 79Q50 87 18 79Q10 50 18 21Z" stroke="#fff" stroke-width="7" stroke-linejoin="round" mask="url(#mYose)"/><path d="M16 19L10 13M84 19L90 13M16 81L10 87M84 81L90 87" stroke="#fff" stroke-width="5" stroke-linecap="round"/><circle cx="8" cy="11" r="5.5"/><circle cx="92" cy="11" r="5.5"/><circle cx="8" cy="89" r="5.5"/><circle cx="92" cy="89" r="5.5"/></g></svg>
+          <span><span class="card__kind">寄席</span><span class="card__name"><span>しびれろ！</span><span>はしご寄席</span></span></span>
+        </span>
+        <span class="card__body">
+          <p class="card__desc">寄席の番組を10日間分まとめて見て、推しの出演者を追いかけるはしごの組み合わせを探します。</p>
+          <span class="card__meta"><span class="card__area">東京・横浜・大阪・神戸</span><span class="card__go">ひらく</span></span>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a class="card card--camp" href="https://camp.hashigo-map.com/">
+        <span class="card__head">
+          <svg class="card__icon" viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="mCamp"><rect width="100" height="100" fill="#fff"/><g fill="#000"><rect x="27" y="0" width="9" height="100"/><rect x="64" y="0" width="9" height="100"/><rect x="36" y="44" width="28" height="9"/><rect x="36" y="70" width="28" height="9"/></g></mask></defs><path d="M50 4 L97 94 H3 Z" fill="#fff" mask="url(#mCamp)"/></svg>
+          <span><span class="card__kind">キャンプ場</span><span class="card__name"><span>燃やせ！</span><span>はしごキャンプ</span></span></span>
+        </span>
+        <span class="card__body">
+          <p class="card__desc">キャンプ場の予約受付状況をまとめて見て、キャンプ＋温泉やエリアめぐりの組み合わせを探します。</p>
+          <span class="card__meta"><span class="card__area">埼玉</span><span class="card__go">ひらく</span></span>
+        </span>
+      </a>
+    </li>
+  </ul>
+
+  <section class="about wrap">
+    <h2>このサイトについて</h2>
+    <p>各サイトの情報は、それぞれの施設の公式サイトをもとに自動でまとめた目安です。出かける前に、必ず公式サイトで最新の情報を確認してください。</p>
+    <p>運営：OCOSCO合同会社 ・ お問い合わせ：<a href="mailto:info@ocosco.com">info@ocosco.com</a></p>
+  </section>
+</main>
+
+</body>
+</html>
