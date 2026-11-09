@@ -11,6 +11,7 @@
 | museum.hashigo-map.com | ゆったりめぐれ！はしごミュージアム | bakuhatsu-art-museum | hashigo-museum.com |
 | yose.hashigo-map.com | しびれろ！はしご寄席 | hashigo-yose | hashigo-yose.com |
 | camp.hashigo-map.com | 燃やせ！はしごキャンプ | hashigo-camp | hashigo-camp.com |
+| shop.hashigo-map.com | かいまわれ！はしごショッピング | hashigo-shop | — |
 
 - 旧ドメインはパスを保ったままサブドメインへ 301 転送する。更新期限が来たら手放す
 - ハイフンなしの転送用ドメイン（hashigocinema.com / hashigomuseum.com / hashigoyose.com）は更新しない
